@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>News Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+      <li><a href="/pagecreate">Create Page</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <%= test %>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Link</th>
+      <th>Edit</th>
+      <th>Delete</th>
+  </tr>
+  <% newsData.forEach(function(data) { %>
+    <tr>
+    <td><%=data.id %></td>
+      <td><%=data.title %></td>
+      <td><%=data.description %></td>
+      <td><%=data.link %></td>
+      <td><a href="/editnews/<%=data.id%>">Update</a>
+      <td><a href="/delnews/<%=data.id%>">Delete</a>
+      </tr>
+  <% }); %>
+  </table>
+
+
+</div>
+
+</body>
+</html>

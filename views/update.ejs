@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>News Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<script>
+    $(document).ready(function(){
+        $('#updatenews').click(function(){
+            //alert($("#txtTitle").val()+" "+$("#txtDescription").val()+" "+$("#txtLink").val());
+            var data = JSON.stringify({
+                                "title":$("#txtTitle").val(), 
+                                "description":$("#txtDescription").val(), 
+                                "link":$("#txtLink").val(),
+            });
+
+            $.ajax({ 
+            type      : 'PUT',
+            url       : '/news/'+$("#idNews").val(), 
+            data      :  data,
+            contentType: "application/json; charset=utf-8",
+	        dataType: "json",
+            success   : function(data) {
+                            if (!data.success) { //If fails
+                                alert("News Gagal diupdate");
+                                window.location.href = '/';
+                            }
+                            else {
+                                   alert("News Berhasil diupdate");
+                                   window.location.href = '/';
+                                }
+                            }
+            });
+            
+        });
+        
+    });
+</script>
+
+
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+      <li><a href="/pagecreate">Create Page</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+    <input type="hidden" id="idNews" value=<%= id %> />
+    <table>
+        <tr>
+            <td>Title</td>
+            <td><input type="text" value=<%= title %> id="txtTitle"/></td>
+        </tr>
+        <tr>
+            <td>Description</<td>
+            <td><textarea id="txtDescription"><%= description %></textarea></td>
+        </tr>
+        <tr>
+            <td>Link</<td>
+            <td><input type="text" value=<%= link %> id="txtLink"/></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" id="updatenews" value="Update"></<td>
+        </tr>
+    <table>
+</div>  
+</body>
+</html>
