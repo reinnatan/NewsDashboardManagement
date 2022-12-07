@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # NewsDashboardManagement
 News Dashboard and simple crawler data from news
 =======
@@ -13,4 +12,4 @@ News Dashboard and simple crawler data from news
 
 # Crawler aplikasi
 - untuk crawler aplikasi bisa dilakukan dengan menggunakan menjalan perintah ```node crawler.js```, tunggu hingga proses selesai
->>>>>>> d006b01 (first commit)
+
