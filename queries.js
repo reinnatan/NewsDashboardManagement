@@ -4,15 +4,18 @@ const pool = new Pool({
     user:'postgres',
     host:'localhost',
     database: 'detik',
-    password: "",
+    password: "reinhart1312",
     port: 5432,
 })
 
+
 const getNews = (request, response) => {
     pool.query('SELECT * FROM news ORDER BY id ASC', (error, results) => {
+      console.log(error.message)
       if (error) {
         throw error
       }
+      connection.release();
       response.status(200).json(results.rows)
     })
   }
@@ -24,6 +27,7 @@ const getNewsById = (request, response) => {
       if (error) {
         throw error
       }
+      connection.release();
       response.status(200).json(results.rows)
     })
 }
@@ -36,6 +40,7 @@ const createNews = (request, response) => {
       if (error) {
         throw error
       }
+      connection.release();
       response.status(201)
       response.setHeader('Content-Type', 'application/json');
       response.send(JSON.stringify({ "success": true, "message":"successfully add news"}));
@@ -54,6 +59,7 @@ const createNews = (request, response) => {
         if (error) {
           throw error
         }
+        connection.release();
         response.status(200)
         response.setHeader('Content-Type', 'application/json');
         response.send(JSON.stringify({ "success": true, "message":"successfully update news"}));
@@ -69,6 +75,7 @@ const deleteNews = (request, response) => {
       if (error) {
         throw error
       }
+      connection.release();
       response.status(200);
       response.setHeader('Content-Type', 'application/json');
       response.send(JSON.stringify({ "success": true, "message":"successfully delete news"}));

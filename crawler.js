@@ -1,7 +1,7 @@
 const axios = require('axios');
 const Parser = require('rss-parser');
 const url = "https://news.detik.com/rss";
-const db = require('./queries')
+const db = require('./queries');
 
 let parser = new Parser();
 (async()=>{
@@ -9,14 +9,14 @@ let parser = new Parser();
     db.pool.query("TRUNCATE TABLE news", (error, resut)=>{
         if (error){
             console.log(error.message)
-            
         }
     });
 
     feed.items.forEach(item =>{
-        db.pool.query('INSERT INTO news (title, description, link, pubdate) VALUES ($1, $2, $3, $4)', 
+        db.pool.query('INSERT INTO news (title, description, link, pubdate) VALUES ($1, $2, $3, $4)',
             [item.title, item.content, item.link, item.isoDate], (error, results) => {
             if (error) {
+
                 throw error
             }
         });

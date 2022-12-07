@@ -21,7 +21,7 @@ app.get("/", function(req, res){
 
 app.get("/delnews/:id", function(req, res){
     const id = parseInt(req.params.id)
-  
+
     db.pool.query('DELETE FROM news WHERE id = $1', [id], (error, results) => {
       if (error) {
         throw error
@@ -32,7 +32,7 @@ app.get("/delnews/:id", function(req, res){
 
 app.get("/editnews/:id", function(req, res){
     const id = parseInt(req.params.id)
-  
+
     db.pool.query('SELECT * FROM news WHERE id = $1', [id], (error, results) => {
       if (error) {
         throw error
