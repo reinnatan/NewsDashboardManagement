@@ -1,5 +1,8 @@
 News Dashboard and simple crawler data from news
 =======
+> Tech Stack
+  - Postgres
+  - ExpressJS
 > Collections
   for collection postman inside in folder collections
 
