@@ -13,11 +13,11 @@ News Dashboard and simple crawler data from news
 - untuk crawler aplikasi bisa dilakukan dengan menggunakan menjalan perintah ```node crawler.js```, tunggu hingga proses selesai
 
 > Crawler Data <br/>
-  -![Crawler Prosess](/screenshoot/crawler.png) <br/>
+  ![Crawler Prosess](/screenshoot/crawler.png) <br/>
 
 > Crawler News<br/>
-  -![Dashboard Management](/screenshoot/dashboard.png)  <br/>
+  ![Dashboard Management](/screenshoot/dashboard.png)  <br/>
 
-> Update News<br/>
-  -![Update News](/screenshoot/update.png) <br/>
+> Update News <br/>
+ ![Update News](/screenshoot/update.png) <br/>
 
