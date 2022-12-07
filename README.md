@@ -3,6 +3,7 @@ News Dashboard and simple crawler data from news
 > Tech Stack
   - Postgres
   - ExpressJS
+  - NodeJS
 > Collections
   for collection postman inside in folder collections
 
